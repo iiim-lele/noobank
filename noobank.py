@@ -5,7 +5,6 @@ class NooBank:
     """
     Classe principal do aplicativo NooBank
     """
-
     def __init__(self):
         # Inicializa o aplicativo Flet apontando para o método main
         self.app = ft.app(target=self.main)
@@ -64,9 +63,9 @@ class NooBank:
         # Atualiza o ícone do botão (olho aberto/fechado)
         self.toggle_saldo_btn.icon = ft.Icons.VISIBILITY_OFF if self.show_values else ft.Icons.VISIBILITY
 
-    # Atualiza todos os valores das movimentações
-    for item in self.movement_texts:
-        item["item"].value = f"R$ {item['date']['value']}" if self.show_values else "R$****,**"
+        # Atualiza todos os valores das movimentações
+        for item in self.movement_texts:
+            item["item"].value = f"R$ {item['date']['value']}" if self.show_values else "R$****,**"
 
         # Atualiza a interface
         self.page.update()
@@ -105,21 +104,21 @@ class NooBank:
                 controls=[
                     # Título de boas-vindas
                     ft.Text("Bem-vindo(a) ao NooBank!", size=25, weight=ft.FontWeight.NORMAL,
-                        color="white"),
-                        # Campo de entrada do nome
-                        input_name,
-                        # Botão para entrar no app
-                        ft.ElevatedButton(
-                            "ENTRAR"
-                            bgcolor="#a126d7", # Cor de fundo roxa mais clara
-                            color="white", # Cor do texto
-                            on_click=handle_login, # Função chamada no clique
-                            style=ft.ButtonStyle(
-                                shape=ft.RoundedRectangleBorder(radius=8), # Bordas arredondadas
-                            ),
-                            width=200,
-                            height=50,
-                        )
+                    color="white"),
+                    # Campo de entrada do nome
+                    input_name,
+                    # Botão para entrar no app
+                    ft.ElevatedButton(
+                        "ENTRAR"
+                        bgcolor="#a126d7", # Cor de fundo roxa mais clara
+                        color="white", # Cor do texto
+                        on_click=handle_login, # Função chamada no clique
+                        style=ft.ButtonStyle(
+                            shape=ft.RoundedRectangleBorder(radius=8), # Bordas arredondadas
+                        ),
+                        width=200,
+                        height=50,
+                    )
                 ]
             )
         )
